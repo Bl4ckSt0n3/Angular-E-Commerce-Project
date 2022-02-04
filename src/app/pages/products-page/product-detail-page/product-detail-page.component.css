@@ -1,0 +1,49 @@
+.mt-6 {
+    margin-top: 12rem;
+}
+.p-6 {
+    padding: 80px 80px 80px 80px;
+}
+
+
+.row {
+    background-color: #fff;
+    margin: auto;
+    max-width: 1600px;
+    min-height: 700px;
+}
+
+.product-meta {
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+    font-size: 20px;
+    padding: 10px 0;
+    margin: 15px 0;
+}
+
+.product_meta > span {
+    display: block;
+    margin-bottom: 10px;
+}
+
+.form-group > form > label{
+    font-size: 20px;
+}
+
+.quantity {
+    width: 120px;
+}
+
+.card-text {
+    font-size: 18px;
+}
+
+.box-small {
+    background-color: #eee;
+    padding: 10px;
+    border-radius: 3px;
+}
+
+.btn {
+    font-size: 20px;
+}

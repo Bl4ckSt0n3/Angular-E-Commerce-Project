@@ -1,0 +1,106 @@
+
+/* h2 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 40px;
+    color: #fff;
+} */
+
+.menu {
+    max-width: 220px;
+}
+
+.menu ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+/* .menu li {
+    padding: 8px;
+    margin-bottom: 7px;
+    background-color: #ccc;
+    border-radius: 5px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    
+}
+.menu li a {
+    color: black;
+    font-size: 110%;
+    font-family: 'Oswald', sans-serif;
+    font-weight: bold;
+    text-decoration: none;
+}
+.menu li:hover {
+    background-color: blanchedalmond;
+} */
+
+
+.menu button {
+    padding: 8px;
+    margin-bottom: 7px;
+    background-color: #ccc;
+    border-radius: 5px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    color: black;
+    font-size: 110%;
+    font-family: 'Oswald', sans-serif;
+    font-weight: bold;
+    min-width: 200px;
+}
+
+.menu button:hover {
+    background-color: blanchedalmond;
+}
+
+#options {
+    font-size: 30px;
+    margin-bottom: 1px black solid;
+}
+
+#title {
+    font-family: 'Oswald', sans-serif;
+    font-size: 35px;
+    color: #fff;
+}
+
+label {
+    font-family: 'Oswald', sans-serif;
+    font-size: 20px;
+    color: #fff;
+}
+
+.form-control {
+    font-family: 'Oswald', sans-serif;
+    font-size: 20px;
+
+    background-color: #002b36;
+    color: #fff;
+}
+
+.mt-6 {
+    margin-top: 10rem;
+}
+
+/* .form-group {
+    margin-bottom: 0.7rem;
+}
+
+.container {
+    margin: 0 auto;
+    position: relative;
+    top: 5%;
+
+} */
+.btn {
+    background-color: #444;
+    color: #ccc;
+    border: none;
+    width: 120px;
+    max-width: 130px;
+    height: 50px;
+    max-height: 50px;
+    margin-top: 15px;
+}
+.btn:hover {
+    background-color: rgb(168, 167, 167);
+}

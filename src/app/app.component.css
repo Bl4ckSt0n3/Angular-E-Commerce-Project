@@ -1,0 +1,277 @@
+/* 
+
+
+ul {
+    list-style: none;
+    text-align: center;
+    padding: 0;
+    margin: 0;
+    margin-right: 35px;
+}
+
+nav {
+    background-color: #444;
+    justify-content: space-between;
+    display: flex;
+    align-items: center;
+    
+    height: 10vh;
+}
+
+.logo {
+    color: #fff;
+    font-size: 3.2em;
+    margin-left: 15px;
+}
+
+li {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.2em;
+    line-height: 40px;
+    height: 40px;
+    border-bottom: 1px solid #888;
+    
+}
+
+a {
+    text-decoration: none;
+    color: #fff;
+    display: block;
+    transition: .3s background-color;
+
+}
+
+a:hover {
+    background-color: #005f5f;
+}
+
+@media screen and (min-width: 768px){
+
+    li{
+        width: 120px;
+        border-bottom: none;
+        height: 70px;
+        line-height: 70px;
+        font-size: 1.4em;
+        display: inline-block;
+        margin-right: 2px;
+    }
+    ul {
+        list-style: none;
+        text-align: center;
+        padding: 0;
+        margin: 0;
+        margin-right: 35px;
+    }
+    
+    nav {
+        background-color: #444;
+        justify-content: space-between;
+        display: flex;
+        align-items: center;
+
+        height: 10vh;
+    }
+}
+ */
+
+
+a {
+    text-decoration: none;
+    font-weight: 500;
+    
+}
+li {
+    list-style: none;
+}
+
+
+.active {
+    background-color: #002b36;
+    color: white;
+    border-radius: 3px;
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    /* padding: 15px; */
+    margin: 0 auto;
+    min-height: 120px;
+    background-color: #fff;
+    color: black;
+    font-family: 'Oswald', sans-serif;
+    z-index: 1;
+}
+/* .nav-links a {
+    color: black;
+} */
+
+   /* LOGO */
+
+.logo {
+    font-size: 32px;
+    font-style: italic;
+    font-weight: bold;
+    display: inline-block;
+    position: relative;
+    left: 6vw;
+}
+   /* NAVBAR MENU */
+.menu {
+    display: flex;
+    gap: 1em;
+    font-size: 20px;
+    align-items: center;
+    position: relative;
+    right: 4vw;
+}
+
+.menu li a {
+    color: inherit;
+}
+
+.menu li:hover a {
+    color: inherit;
+}
+   
+.menu li:hover {
+    /* background-color: rgb(19, 58, 43); */
+    background-color: #002b36;
+    /* font-weight: bold; */
+    color: white;
+    border-radius: 3px;
+    transition: 0.3s ease;
+}
+   
+.menu li {
+    padding: 8px 17px;
+}
+
+   /* DROPDOWN MENU */
+.services {
+    position: relative; 
+}
+.products {
+    position: relative;
+}
+   
+.dropdown {
+    background-color: #002b36; /*#005051*/
+    padding: 0.5em 0;
+    position: absolute; /*WITH RESPECT TO PARENT*/
+    display: none;
+    border-radius: 5px;
+    border: #fff 2px solid;
+    top: 46px;
+   }
+   
+.dropdown li + li {
+    margin-top: 10px;
+}
+
+.dropdown li {
+    padding: 0.5em 1em;
+    width: 8em;
+    text-align: center;
+    font-weight: bold;
+
+}
+
+.dropdown a {
+    color: #fff;
+}
+
+.dropdown li:hover {
+    background-color: rgba(238, 234, 26, 0.8);
+}
+.services:hover .dropdown {
+    display: block;
+}
+.products:hover .dropdown {
+    display: block;
+}
+
+
+   /* CHECKBOX HACK */
+input[type=checkbox]{
+    display: none;
+} 
+   /*HAMBURGER MENU*/
+.hamburger {
+    display: none;
+    font-size: 24px;
+    user-select: none;
+}
+   
+/* APPLYING MEDIA QUERIES */
+@media (max-width: 768px) {
+   .menu { 
+        display:none;
+        position: absolute;
+        background-color:#fff;
+        right: 0;
+        left: 0;
+        text-align: center;
+        padding: 16px 0;
+   }
+
+    .menu li:hover {
+        display: inline-block;
+        /* background-color:#444; */
+        transition: 0.3s ease;
+    }
+
+    .menu li + li {
+        margin-top: 12px;
+    }
+
+    input[type=checkbox]:checked ~ .menu{
+        display: block;
+    }
+
+    .hamburger {
+        display: block;
+    }
+
+    .dropdown {
+        left: 50%;
+        top: 30px;
+        transform: translateX(35%);
+    }
+
+    .dropdown li:hover {
+        background-color: #444;
+    }
+}
+
+/* .search {
+    margin: 0 auto;
+    text-align: center;
+    max-width: 800px;
+    overflow: auto;
+    position: absolute;
+    top: 150px; left: 0; bottom: 0; right: 0;
+} */
+.form-control {
+    outline: none !important;
+    box-shadow: none;
+}
+.btn-secondary {
+    box-shadow: none;
+    display: block;
+}
+.input-group{
+    display: flex;
+    max-width: 600px;    
+}
+
+h2, h3 {
+    color: #fff;
+}
+
+#login {
+    text-decoration: none;
+    color: rgba(238, 234, 26);
+}

@@ -1,0 +1,64 @@
+.container-fluid {
+    margin-top: 15rem;
+    font-family: 'Oswald' sans-serif;
+}
+
+.box-card {
+    background-color: rgba(238, 234, 26, 0.9);
+    height: 300px;
+    margin: auto;
+    max-width: 25rem;
+    box-shadow: 1px 2px 4px rgba(0,0,0,0.3), 1px 2px 4px rgba(0,0,0,0.4);
+    border-radius: 8px;
+}
+
+
+.box-card > section > div > label {
+    font-size: 30px;
+    color: #444;
+    font-weight: 600;
+}
+
+.box-card:hover {
+    transform: translateY(-3px) scale(1.1);
+    transition: 0.3s ease;
+}
+
+.info-box {
+    font-family: 'Oswald' sans-serif;
+}
+
+.date {
+    font-size: 35px;
+    font-weight: bold;
+    color: #fff;
+}
+.user-title {
+    font-size: 60px;
+    font-weight: bold;
+    color: #fff;
+}
+
+.user-list > li {
+    font-size: 22px;
+    color: #444;
+    font-weight: 600;
+}
+
+.setting-list > li {
+    font-size: 22px;
+    color: #444;
+    font-weight: 600;
+}
+
+/* .info-box > div > label {
+    font-size: ;
+} */
+
+.ms-6 {
+    margin-left: 12rem;
+}
+
+/* .me-6 {
+    margin-right: 3rem;
+} */

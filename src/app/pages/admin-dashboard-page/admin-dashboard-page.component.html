@@ -1,0 +1,71 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="info-box mb-5">
+                <div class="user-title ms-5">
+                    <label>Welcome User</label>
+                </div>
+                <div class="date ms-5">
+                    <label>Today: {{date()}}</label>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12 box">
+            <div class="row">
+                <div class="col-md-3 box-card mt-2">
+                    <section>
+                        <div class="mt-5 ms-4">
+                            <label >My Profile</label>
+                            <label class="float-end me-5"><i style='font-size:45px' class='fas'>&#xf2bd;</i></label>
+                        </div>
+                        <div class="mt-4 ms-4">
+                            <ul class="user-list" style="list-style-type: none;">
+                                <li>Name: User</li>
+                                <li>Username: Username</li>
+                                <li>Created at 1.1.2022</li>
+                            </ul>
+                        </div>
+                    </section>
+                </div>
+                <div class="col-md-3 box-card mt-2" (click)="redirectUrl('/basket')">
+                    <section>
+                        <div class="mt-5 ms-4">
+                            <label >Basket</label>
+                            
+                        </div>
+                        <div class="ms-4 mt-5">
+                            <label><i style='font-size:50px' class='fas'>&#xf07a;</i></label>
+                            <span class="float-end me-3"><label style="font-size: 38px; font-weight: bold; color: #444;">Items: {{quentity}}</label></span>
+                        </div>
+                    </section>
+                </div>
+                <div class="col-md-3 box-card mt-2" (click)="redirectUrl('/orders')">
+                    <section>
+                        <div class="mt-5 ms-4">
+                            <label>Orders</label>
+                        </div>
+                        <div class="ms-4 mt-5">
+                            <label><i style='font-size:50px' class='fas'>&#xf02c;</i></label>
+                            <span class="float-end me-3"><label style="font-size: 38px; font-weight: bold; color: #444;">134</label></span>
+                        </div>
+                    </section>
+                </div>
+                <div class="col-md-3 box-card mt-2">
+                    <section>
+                        <div class="mt-5 ms-4">
+                            <label>Settings</label>
+                            <label class="float-end me-5"><i style='font-size:45px' class='fas'>&#xf085;</i></label>
+                        </div>
+                        <div class="ms-4 mt-4">
+                            <ul class="setting-list" style="list-style-type: none;">
+                                <li>
+                                    Account Settings
+                                </li>
+                            </ul>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

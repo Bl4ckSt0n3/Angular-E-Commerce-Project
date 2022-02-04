@@ -1,0 +1,90 @@
+/* .container {
+    max-width: 500px;
+    margin: 0 auto;
+    margin-top: 10rem;
+    display: block;
+}
+
+label {
+    color: #ccc;
+}
+.form-group {
+    font-size: 20px;
+    font-family: 'Oswald', sans-serif;
+}
+
+.form-group > input {
+    border: none;
+    border-bottom: 2px solid #444;
+    background-color: #ccc;
+}
+
+.form-control {
+    font-size: 20px;
+    font-family: 'Oswald', sans-serif;
+}
+
+.form-control:focus {
+    border-color: inherit;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+.btn:focus, .btn:active:focus, .btn.active:focus{
+    outline:none;
+    box-shadow:none;
+}
+
+.btn {
+    background-color: #444;
+    color: #ccc;
+    border: none;
+    width: 130px;
+    max-width: 130px;
+    height: 50px;
+    max-height: 50px;
+    margin-top: 15px;
+}
+.btn:hover {
+    background-color: rgb(168, 167, 167);
+}
+.password-forgot{
+    color: #ccc;
+    text-decoration: none;
+    float: right;
+} */
+
+.form-control {
+    font-weight: bold;
+    font-family: 'Oswald', sans-serif;
+    font-size: 20px;
+    background-color: rgba(91, 112, 126, 0.5) ;
+    color: #fff;
+    height: 50px;
+    /* box-shadow: none !important;
+    -webkit-box-shadow: none !important;
+    -moz-box-shadow: none !important;
+    border: 3px solid #1E3D51 !important; */
+}
+.form-control:focus {
+    border-color: #039be5;
+    outline: 0;
+    box-shadow: none
+}
+
+.form-group{
+    text-align: center;
+}
+
+label {
+    font-family: 'Oswald', sans-serif;
+    color: #fff;
+    font-size: 35px;
+}
+.login {
+    text-align: center;
+}
+
+button {
+    font-size: 22px;
+}
+

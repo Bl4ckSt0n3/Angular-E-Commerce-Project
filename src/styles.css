@@ -1,1 +1,15 @@
 /* You can add global styles to this file, and also import other style files */
+.toast-top-right {
+    font-size: 20px;
+    color: #fff;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    /* background: #ccc; */
+    background:#002b36; /*19 58 43*/
+}
+
+html, body { min-height: 90%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

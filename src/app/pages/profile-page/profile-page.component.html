@@ -1,0 +1,119 @@
+<div class="container mt-6 p-2">
+    <div class="row "> <!--justify-content-md-center-->
+        <div class="col-md-3 mt-5 menu">
+            <div class="row">
+                <div class="row">
+                    <label for="options" id="options">Options</label>
+                </div>
+                <div class="row mt-3">
+                    <ul>
+                        <!-- <li><a [routerLink]="">Update Informations</a></li>
+                        <li><a [routerLink]="">Delete Account</a></li> -->
+                        <li><button>Update Informations</button> </li>
+                        <li><button (click)="delete()">Delete Account</button></li>
+                    </ul>
+                </div>
+                
+            </div>
+        </div>
+        
+        <div class="col-md-9 ps-5">
+            <div class="row mt-3">
+                <label for="title" id="title">Personal Information</label>
+            </div>
+            <!-- <form [formGroup]="profileInfoForm" class="row g-3 mt-3">
+                <div class="col-md-6">
+                    <label for="inputEmail4" class="form-label">Email</label>
+                    <input type="email" class="form-control" id="inputEmail4" formControlName="email" readonly>
+                </div>
+                <div class="col-md-6">
+                    <label for="inputPassword4" class="form-label">Password</label>
+                    <input type="password" class="form-control" id="inputPassword4" formControlName="password">
+                </div>
+                <div class="col-md-6">
+                    <label for="name" class="form-label">Name</label>
+                    <input type="text" class="form-control" id="name" formControlName="name">
+                </div>
+                <div class="col-md-6">
+                    <label for="inlastName" class="form-label">Last Name</label>
+                    <input type="text" class="form-control" id="lastName" formControlName="lastName">
+                </div>
+                <div class="col-12">
+                    <label for="inputAddress" class="form-label">Address</label>
+                    <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St" formControlName="address1">
+                </div>
+                <div class="col-12">
+                    <label for="inputAddress2" class="form-label">Address 2</label>
+                    <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor" formControlName="address2">
+                </div>
+                <div class="col-md-6">
+                    <label for="phoneNumber" class="form-label">Phone</label>
+                    <input type="text" class="form-control" id="phoneNumber" formControlName="phoneNumber">
+                </div>
+                <div class="col-md-6">
+                    <label for="country" class="form-label">Country</label>
+                    <input type="text" class="form-control" id="country" formControlName="country">
+                </div>
+                <div class="col-md-6">
+                    <label for="inputCity" class="form-label">City</label>
+                    <input type="text" class="form-control" id="inputCity" formControlName="city">
+                </div>
+                <div class="col-md-4">
+                    <label for="inputState" class="form-label">State</label>
+                    <input type="text" class="form-control" id="inputState" formControlName="state">
+                </div>
+                <div class="col-md-2">
+                    <label for="inputZip" class="form-label">Zip</label>
+                    <input type="text" class="form-control" id="inputZip" formControlName="zip">
+                </div>
+            </form> -->
+            <form [formGroup]="profileInfoForm" class="row g-3 mt-3">
+                <div class="col-md-6">
+                    <label for="inputEmail4" class="form-label">Email</label>
+                    <input type="email" class="form-control" id="inputEmail4" formControlName="email" readonly>
+                </div>
+                <div class="col-md-6">
+                    <label for="inputPassword4" class="form-label">Password</label>
+                    <input type="password" class="form-control" id="inputPassword4" formControlName="password">
+                </div>
+                <div class="col-md-6">
+                    <label for="name" class="form-label">Name</label>
+                    <input type="text" class="form-control" id="name" formControlName="name">
+                </div>
+                <div class="col-md-6">
+                    <label for="inlastName" class="form-label">Last Name</label>
+                    <input type="text" class="form-control" id="lastName" formControlName="lastName">
+                </div>
+                <div class="col-12">
+                    <label for="inputAddress" class="form-label">Address</label>
+                    <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St" formControlName="address1">
+                </div>
+                <div class="col-12">
+                    <label for="inputAddress2" class="form-label">Address 2</label>
+                    <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor" formControlName="address2">
+                </div>
+                <div class="col-md-6">
+                    <label for="phoneNumber" class="form-label">Phone</label>
+                    <input type="text" class="form-control" id="phoneNumber" formControlName="phoneNumber">
+                </div>
+                <div class="col-md-6">
+                    <label for="country" class="form-label">Country</label>
+                    <input type="text" class="form-control" id="country" formControlName="country">
+                </div>
+                <div class="col-md-6">
+                    <label for="inputCity" class="form-label">City</label>
+                    <input type="text" class="form-control" id="inputCity" formControlName="city">
+                </div>
+                <div class="col-md-4">
+                    <label for="inputState" class="form-label">State</label>
+                    <input type="text" class="form-control" id="inputState" formControlName="state">
+                </div>
+                <div class="col-md-2">
+                    <label for="inputZip" class="form-label">Zip</label>
+                    <input type="text" class="form-control" id="inputZip" formControlName="zip">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+      
