@@ -1,109 +1,94 @@
-<div class="container-fluid mt-6">
-    <div class="row justify-content-center wrapper mt-6">
-        <div class="col-md-10">
+<div class="container-fluid mt-6" >
+    <div class="row justify-content-center wrapper mt-6" style="min-height: 90vh;">
+        <div class="col-md-3 mt-6 search-box">
+            <section class="box-small">
+                <div class="row filter-box pb-3" style="background-color: #eee; border: 1px solid rgb(201, 201, 201); border-radius: 4px;">
+                    <div class="col-md-12 pb-3 mt-4" style="border-bottom: 1px solid rgb(190, 190, 190);">
+                        <h3>Search</h3>
+                    </div>
+                    <div class="col-md-6 mt-4">
+                        <label style="font-size: 20px;">From</label>
+                        <div class="form-group">
+                            <div class="input-group">
+                                <input class="form-control" id="startDateInput" placeholder="yyyy-mm-dd"
+                                name="dps" [(ngModel)]="model_1" ngbDatepicker #ds="ngbDatepicker">
+                                <div class="input-group-append">
+                                    <button class="btn btn-outline-secondary calendar" (click)="ds.toggle()" type="button">
+                                        <i class="fa" > &#xf073;</i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mt-4">
+                        <label style="font-size: 20px;">To</label>
+                        <div class="form-group">
+                            <div class="input-group">
+                                <input class="form-control" id="endDateInput" placeholder="yyyy-mm-dd"
+                                name="dpe" [(ngModel)]="model_2" ngbDatepicker #de="ngbDatepicker">
+                                <div class="input-group-append">
+                                    <button class="btn btn-outline-secondary calendar" (click)="de.toggle()" type="button">
+                                        <i class="fa" style="font-size:18px"> &#xf073; </i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12 mt-2">     
+                        <label style="font-size: 22px; color: #444;">Sort</label>
+                        <select class="form-select"  name="first" [(ngModel)]="defaultOption" (ngModelChange)="onChangeofOptions($event)">
+                            <option selected>Not Selected</option>
+                            <option value="last-month">Last Month</option>
+                            <option value="ascending">Date Ascending</option>
+                            <option value="descending">Date Descending</option>
+                        </select>   
+                    </div>
+                    <div class="col-md-12">
+                        <button class="btn btn-warning mt-3" (click)="getDates()" style="color:#fff; width: 100%; height: 3rem;">
+                            Get <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+                </div>
+            </section>
+        </div>
+        <div class="col-md-7 frame">
             <section class="box p-4">
                 <div class="orders">
-                    <div class="row pb-5" style="border-bottom: 0.5px solid rgb(177, 177, 177); background-color: rgb(180, 180, 180);">
-                        <div class="col-md-8 title align-self-center mt-5">
-                            <h2 class="ms-5" style="color: #444;">Order History</h2>
+                    <div class="row pb-3 inner-row">
+                        <div class="col-md-10 title align-self-center mt-5">
+                            <h2 class="" style="color: #444;">Order History</h2>
                         </div>
-                        <div class="col-md-4 mt-5">
-                            <form class="form-inline">
-                                <label style="font-size: 22px;">Sort: </label>
-                                <select class="form-select ms-3"  name="first" [(ngModel)]="defaultOption" (ngModelChange)="onChangeofOptions($event)">
-                                    <option selected>Not Selected</option>
-                                    <option value="last-month">Last Month</option>
-                                    <option value="ascending">Date Ascending</option>
-                                    <option value="descending">Date Descending</option>
-                                    <option value="in-transit">In Transit</option>
-                                </select>
-                            </form> 
+                        <div class="col-md-2 align-self-end float-right" style="color: rgb(95, 95, 95);">
+                            <label class="mt-2" style="font-size: 20px;">{{itemLength}} Items</label>
                         </div>
-                        <!-- <ngb-datepicker #dp [(ngModel)]="model" (navigate)="date = $event.next"></ngb-datepicker> -->
-                        <!-- <div class="col-md-9">
-                            <div class="row">
-                                <div class="col-md-4 mt-5">
-                                    <form class="form-inline">
-                                        <label style="font-size: 22px;">Sort: </label>
-                                        <select class="form-select ms-3" aria-label="Default select example">
-                                            <option selected>Not Selected</option>
-                                            <option value="cement">Last Month</option>
-                                            <option value="wood">Date Ascending</option>
-                                            <option value="solar_panel">Date Descending</option>
-                                        </select>
-                                    </form> 
-                                </div>
-                                <div class="col-md-8 ">
-                                    <div class="row">
-                                        <div class="col-sm-6 mt-5">
-                                            
-                                            <form class="form-inline">
-                                                <label for="datePicker" style="font-size: 22px;">Start Date: </label>
-                                                <div class="form-group ms-3">
-                                                    <div class="input-group">
-                                                        <input class="form-control" style="font-size: 18px; max-width: 140px;" placeholder="yyyy-mm-dd"
-                                                        name="dp" [(ngModel)]="model" ngbDatepicker #d="ngbDatepicker">
-                                                        <div class="input-group-append">
-                                                            <button class="btn btn-outline-secondary calendar" (click)="d.toggle()" type="button">
-                                                                <i class="fa" style="font-size:18px"> &#xf073; </i>
-                                                            </button>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </form>
-                                        </div>
-                                        <div class="col-sm-6 mt-5">
-                                            <form class="form-inline">
-                                                <label for="datePicker" style="font-size: 22px;">End Date: </label>
-                                                <div class="form-group ms-3">
-                                                    <div class="input-group">
-                                                        <input class="form-control" style="font-size: 18px; max-width: 140px;" placeholder="yyyy-mm-dd"
-                                                        name="dp" [(ngModel)]="model" ngbDatepicker #d="ngbDatepicker">
-                                                        <div class="input-group-append">
-                                                            <button class="btn btn-outline-secondary calendar" (click)="d.toggle()" type="button">
-                                                                <i class="fa" style="font-size:18px"> &#xf073; </i>
-                                                            </button>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </form>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div> -->
                     </div>
                     
-                    <div class="row p-3">
-                        <div class="row">
-                            <div class="col-md-3">
-                                <h3>Orders</h3>
-                                <label>{{itemLength}} orders</label>
-                            </div>
-                            <div class="col-md-9">
-                                <div class="row  justify-content-end">
-                                    <div class="col-md-4">
+                    <div class="row p-3" >
+                        <!-- <div class="row pb-3" style="border-bottom: 0.5px solid rgb(177, 177, 177); width: 1600px;">
+                            <div class="col-md-12" >
+                                <div class="row">
+                                    <div class="col-md-3">
                                         <form class="form-inline">
-                                            <label class="me-3" for="datePicker" style="font-size: 22px;">Start Date: </label>
+                                            <label class="me-3 start-date" for="datePicker">From: </label>
                                             <div class="form-group">
                                                 <div class="input-group">
-                                                    <input class="form-control" style="font-size: 18px; max-width: 140px;" placeholder="yyyy-mm-dd"
+                                                    <input class="form-control" id="startDateInput" placeholder="yyyy-mm-dd"
                                                     name="dps" [(ngModel)]="model_1" ngbDatepicker #ds="ngbDatepicker">
                                                     <div class="input-group-append">
                                                         <button class="btn btn-outline-secondary calendar" (click)="ds.toggle()" type="button">
-                                                            <i class="fa" style="font-size:18px"> &#xf073; </i>
+                                                            <i class="fa" > &#xf073;</i>
                                                         </button>
                                                     </div>
                                                 </div>
                                             </div>
                                         </form>
                                     </div>
-                                    <div class="col-md-4">
+                                    <div class="col-md-3">
                                         <form class="form-inline">
-                                            <label class="me-3" for="datePicker" style="font-size: 22px;">End Date: </label>
+                                            <label class="me-3 end-date" for="datePicker">To: </label>
                                             <div class="form-group">
                                                 <div class="input-group">
-                                                    <input class="form-control" style="font-size: 18px; max-width: 140px;" placeholder="yyyy-mm-dd"
+                                                    <input class="form-control" id="endDateInput" placeholder="yyyy-mm-dd"
                                                     name="dpe" [(ngModel)]="model_2" ngbDatepicker #de="ngbDatepicker">
                                                     <div class="input-group-append">
                                                         <button class="btn btn-outline-secondary calendar" (click)="de.toggle()" type="button">
@@ -114,51 +99,66 @@
                                             </div>
                                         </form>
                                     </div>
-                                    <div class="col-md-2">
-                                        <button class="btn btn-secondary" (click)="getDates()">
-                                            Get Dates <i class="fa fa-search"></i>
+                                    <div class="col-md-2 align-self-center">
+                                        <button class="btn btn-warning" (click)="getDates()" style="color:#fff">
+                                            Get <i class="fa fa-search"></i>
                                         </button>
+                                    </div>
+                                    <div class="col-md-4 ">
+                                        <form class="form-inline">
+                                            <label style="font-size: 22px; color: #444;">Sort: </label>
+                                            <select class="form-select ms-3"  name="first" [(ngModel)]="defaultOption" (ngModelChange)="onChangeofOptions($event)">
+                                                <option selected>Not Selected</option>
+                                                <option value="last-month">Last Month</option>
+                                                <option value="ascending">Date Ascending</option>
+                                                <option value="descending">Date Descending</option>
+                                            </select>
+                                        </form> 
                                     </div>
                                 </div>
                                 
 
                             </div>
-                        </div>
+                        </div> -->
                         
-                        <div class="products mt-3" *ngFor="let item of basketItems">
+                        <div class="products mt-2" *ngFor="let item of basketItems | paginate: { itemsPerPage: 12, currentPage: p }">
                             
-                            <div class="row">
-                                <div class="col-md-2">
+                            <div class="row" style="background-color: #fff;">
+                                <!-- <div class="col-md-2">
                                     <img class="card-img-top p-3" src="../assets/images/steel.jpg" alt="Card image cap" >
-                                </div>
-                                <div class="col-md-4 mt-4">
+                                </div> -->
+                                <div class="col-md-3 ms-3 mt-3">
                                     <div id="name">
                                         {{ item.product }}
                                     </div>
                                     <div id="amount">
                                         Qty: {{ item.amount }} kg
                                     </div>
+                                </div>
+                                <div class="col-md-2 mt-3">
                                     <div class="mt-2" id="price">
                                         Price: {{ item.price }} $
                                     </div>
                                 </div>
-                                <div class="col-md-3 mt-5">
+                                <div class="col-md-3 mt-3">
                                     <div>
                                         <label for="orderDate" id="orderDate">Order Date</label>
                                     </div>
                                     <div>
-                                        <label for="dateItem" id="dateItem">{{item.date}}</label>
+                                        <label for="dateItem" id="dateItem">{{item.date.toDateString()}}</label>
                                     </div>
                                 </div>
-                                <div class="col-md-2 mt-5">
+                                <div class="col-md-2 align-self-center">
                                     <div>
                                         <label for="" id="orderStatus">Status: Arrived</label>
                                     </div>
                                 </div>
                             </div>
-                            
-                            
-                            <!--add status date etc. think about it the right side box to put status etc. -->
+                        </div>
+                    </div>
+                    <div class="row justify-content-end">
+                        <div class="col-md-auto">
+                            <pagination-controls (pageChange)="onPageChange($event)" class="float-right" style="font-size: 20px;"></pagination-controls>
                         </div>
                     </div>
                     

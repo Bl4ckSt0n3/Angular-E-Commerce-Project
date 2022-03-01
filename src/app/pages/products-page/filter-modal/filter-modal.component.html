@@ -1,0 +1,29 @@
+<div class="modal-header">
+    <h3 class="modal-title">My Modal</h3>
+        <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+            <span aria-hidden="true">&times;</span>
+        </button>
+</div>
+<div class="modal-body">
+    <div class="form">
+        <form [formGroup]="filterForm">
+            <div class="selection mt-2">
+                <label>Categories</label>
+                <select class="form-select mt-2" aria-label="Default select example" formControlName="category">
+                    <!-- <option selected>Not Selected</option> -->
+                    <option value="cement">Cement</option>
+                    <option value="pipe">Pipe</option>
+                    <option value="wood">Wood</option>
+                    <option value="solar_panel">Solar Panel</option>
+                    <option value="electric">Electric</option>
+                </select>
+            </div>
+            
+        </form>
+    </div>   
+</div>
+<div class="modal-footer">
+    <button type="button" id="blue-button" class="btn btn-outline-dark confirm-buton" (click)="confirm()">confirm</button> 
+    <button type="button" id="red-button" class="btn btn-outline-dark confirm-buton" (click)="activeModal.close('Close click')">close</button>
+</div>
+

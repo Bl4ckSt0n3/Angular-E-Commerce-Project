@@ -72,53 +72,117 @@
             </div>
     </div> -->
     
-    <div class="row">
-        <div class="col-sm-2 ms-3 mt-3">
-            <section class="box">
+    <div class="row justify-content-center" style="min-height: 90vh;">
+        <!-- <div class="col-sm-2 ms-3 mt-5">
+            <button class="btn btn-warning left-button" (click)="filterPopup()">Filter</button>
+            <section class="box mt-5">
                 <div class="search-box">
-                    <div class="box-title ms-2">
-                        <label>Filter</label>
-                    </div>
-                    <div class="selection mt-4">
-                        <label>Categories</label>
-                        <select class="form-select mt-2" aria-label="Default select example">
-                            <option selected>Not Selected</option>
-                            <option value="cement">Cement</option>
-                            <option value="pipe">Pipe</option>
-                            <option value="wood">Wood</option>
-                            <option value="solar_panel">Solar Panel</option>
-                            <option value="electric">Electric</option>
-                          </select>
-                    </div>
+                    <form [formGroup]="filterForm">
+                    
+                        <div class="box-title ms-2">
+                            <label>Filter</label>
+                        </div>
+                        <div class="selection mt-4">
+                            <label>Categories</label>
+                            <select class="form-select mt-2" aria-label="Default select example" formControlName="category">
+                                
+                                <option value="cement">Cement</option>
+                                <option value="pipe">Pipe</option>
+                                <option value="wood">Wood</option>
+                                <option value="solar_panel">Solar Panel</option>
+                                <option value="electric">Electric</option>
+                            </select>
+                        </div>
+                    </form>
                     <div class="selection mt-4">
                         <label>Sort</label>
-                        <select class="form-select mt-2" aria-label="Default select example">
-                            <option selected>Best Sorting</option>
-                            <option value="cement">Price Ascending</option>
-                            <option value="pipe">Price Descending</option>
-                          </select>
+                        <select class="form-select mt-2" aria-label="Default select example" [(ngModel)]="defaultOption" (ngModelChange)="onChangeofOptions($event)">
+                            
+                            <option value="ascending">Price Ascending</option>
+                            <option value="descending">Price Descending</option>
+                        </select>
                     </div>
+                    
                     <div class="filter-input mt-4">
-                        <form>
+                        <form [formGroup]="searchForm">
                             <label for="filterControl">Filter on the page</label>
                             <div class="search">
-                                <i class='fas'>&#xf002;</i><input type="text" id="filterControl" class="form-control" placeholder="Type to filter...">
+                                <i class='fas'>&#xf002;</i><input type="text" id="filterControl" class="form-control" formControlName="cardTitle" placeholder="Type to filter...">
                             </div>
-    
                         </form>
-                        <button type="button" class="btn btn-warning mt-3" style="min-width: 242px;">Filter <i class='fas' style="color: #444;">&#xf002;</i></button>
+                    
+                        <button type="button" class="btn btn-warning mt-3" style="width: 15rem;">
+                            Filter <i class='fas' style="color: #444;">&#xf002;</i>
+                        </button>
+                    </div>
+                    
+                </div>
+            </section>
+        </div> -->
+        <div class="col-md-2 filter-col ms-3 mt-5" style="text-align: center;">
+            <section class="mt-5">
+                <div class="row">
+                        <div class="col-md-12 category mt-4">
+                            <label style="font-size: 20px;"><b>Categories</b> </label>
+                            <select class="form-select mt-1" aria-label="Default select example" 
+                            style="border-radius: 8px; box-shadow: 0 1px 4px 0px rgba(0, 0, 0, 0.12); height: 48px;"
+                            [(ngModel)]="categoryDefaultOption" 
+                            (ngModelChange)="onChangeOfCategoryOptions($event)"
+                            >
+                                <option selected>Not Selected</option>
+                                <option value="cement">Cement</option>
+                                <option value="pipe">Pipe</option>
+                                <option value="wood">Wood</option>
+                                <option value="solar_panel">Solar Panel</option>
+                                <option value="electric">Electric</option>
+                            </select>
+                        </div>
+                        <!-- <div class="dropdown mt-3" >
+                            <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                              Dropdown button
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                              <li><a class="dropdown-item" href="#">Action</a></li>
+                              <li><a class="dropdown-item" href="#">Another action</a></li>
+                              <li><a class="dropdown-item" href="#">Something else here</a></li>
+                            </ul>
+                        </div> -->
+                    
+                        <div class="col-md-12 sort mt-4">
+                            <label style="font-size: 20px;"><b>Sort</b></label>
+                            <select class="form-select mt-1" aria-label="Default select example" 
+                            style="border-radius: 8px; box-shadow: 0 1px 4px 0px rgba(0, 0, 0, 0.12); height: 48px;" 
+                            [(ngModel)]="defaultOption" 
+                            (ngModelChange)="onChangeofOptions($event)"
+                            >
+                                <option selected>Not Selected</option>
+                                <option value="ascending">Price Ascending</option>
+                                <option value="descending">Price Descending</option>
+                            </select>
+                        </div>
+                    
+                    <div class="col-md-12 filter-input mt-4">
+                        <form [formGroup]="searchForm">
+                            <label for="filterControl">Filter on the page</label>
+                            <div class="search">
+                                <i class='fas'>&#xf002;</i><input type="text" id="filterControl" class="form-control" formControlName="cardTitle" placeholder="Type to filter...">
+                            </div>
+                        </form>
+                        <!-- <button type="button" class="btn btn-warning mt-3" style="width: 15rem;" (click)="get()">
+                            Filter <i class='fas' style="color: #444;">&#xf002;</i>
+                        </button> -->
                     </div>
                 </div>
             </section>
         </div>
-        <div class="col-sm-12 ms-3" style="max-width: 75%;">
-            <div class="row">
-                <div class="col-sm-4 mt-3 d-flex align-items-stretch" *ngFor="let item of items">
+        <div class="col-md-8 ms-3 product-column">
+            <div class="row mt-5">
+                <div class="col-sm-4 mt-3 d-flex align-items-stretch" *ngFor="let item of templists | filter: filterTerm | paginate: { itemsPerPage: 12, currentPage: p }">
                     <div class="card">
                         <img class="card-img-top" src="../assets/images/steel.jpg" alt="Card image cap" style="height: 28vh;">
                         <div class="card-body" (click)="goDetail(item.cardText, item.cardTitle, item.price, item.category, '/products/details')">
                             <h4 class="card-title">{{item.cardTitle}}</h4>
-                            <h4 class="card-price"><strong>{{item.price}}</strong></h4>
+                            <h4 class="card-price"><strong>$ {{item.price}}</strong></h4>
                             
                             <p class="card-text">{{item.cardText}}</p>
                             <h5 class="card-category"><strong>Category: </strong>{{item.category}}</h5>
@@ -126,8 +190,13 @@
                         </div>
                     </div>
                 </div>
+                <div class="col-md-12 mt-3">
+                    <pagination-controls (pageChange)="onPageChange($event)" class="float-right" ></pagination-controls>
+                </div>
             </div>
         </div>
+        
+        
 
         <!-- <div class="col-sm-12 col-md-6 col-lg-4 product-list__item" *ngFor="let product of products; let i = index;">
             <div class="card mb-4 shadow-sm pd-5">
@@ -147,8 +216,8 @@
           </div> -->
 
     </div>
+    
 </div>
 
-  
 
     

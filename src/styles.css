@@ -3,12 +3,16 @@
     font-size: 20px;
     color: #fff;
 }
+.toast-top-right > div {
+    width: 350px !important;
+  }
 
 body {
     margin: 0;
     padding: 0;
     /* background: #ccc; */
-    background:#002b36; /*19 58 43*/
+    background-color:#002b36;/*19 58 43 */
+    /* background: #fff; */
 }
 
 html, body { min-height: 90%; }

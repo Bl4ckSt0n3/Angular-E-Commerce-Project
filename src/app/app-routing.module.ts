@@ -12,23 +12,26 @@ import { ProductDetailPageComponent } from './pages/products-page/product-detail
 import { ProductsPageComponent } from './pages/products-page/products-page.component';
 import { ProfilePageComponent } from './pages/profile-page/profile-page.component';
 import { RegisterPageComponent } from './pages/register-page/register-page.component';
+import { AuthGuardService } from './services/auth-guard.service';
+
 
 const routes: Routes = [
-  { path: "", component: HomePageComponent},
+  { path: "",  component: HomePageComponent},
   { path: "home", component: HomePageComponent },
   { path: "login", component: LoginPageComponent },
   { path: "products", component: ProductsPageComponent },
   { path: "about", component: InfoPageComponent },
-  { path: "register", component: RegisterPageComponent },
+  { path: "user/register", component: RegisterPageComponent }, // , canActivate: [AuthGuardService]
   { path: "profile", component: ProfilePageComponent },
   { path: "payment", component: PaymentPageComponent },
   { path: "contact", component: ContactPageComponent },
   { path: "basket", component: BasketPageComponent },
   { path: "products/:param", component: ProductDetailPageComponent},
   { path: "dashboard", component: AdminDashboardPageComponent },
-  { path: "orders", component: OrdersPageComponent}
+  { path: "orders", component: OrdersPageComponent},
 
 ];
+
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

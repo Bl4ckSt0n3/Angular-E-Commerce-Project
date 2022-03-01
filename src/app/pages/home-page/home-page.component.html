@@ -1,6 +1,6 @@
 <div class="container">
     <div class="col-md-8 position-absolute top-50">
-        <div class="row">
+        <div class="row" *ngIf="token == null">
             <div class="col-12">
                 <h3>
                     Welcome to Mr. Coder Company !
@@ -13,6 +13,13 @@
                     Learn More 
                 </h2>
                 <button type="button" class="btn btn-secondary btn-lg" (click)="redirect()">Register Now</button>
+            </div>
+        </div>
+        <div class="row" *ngIf="token">
+            <div class="col-12">
+                <h3>
+                    Welcome to Mr. Coder Company !
+                </h3>
             </div>
         </div>
     </div>

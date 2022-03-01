@@ -57,22 +57,22 @@
     <label for="checkbox_toggle" class="hamburger">&#9776;</label>
     <!-- NAVIGATION MENUS -->
     <div class="menu mt-3">
-      <li class="active"><a  [routerLink]="" (click)="redirect('/home')" style="font-weight: bold;">Home</a></li>
+      <li class=""><a  [routerLink]="" (click)="redirect('/home')" style="font-weight: bold;">Home</a></li><!--active-->
       <li><a [routerLink]="" (click)="redirect('/about')">About</a></li>
       <li *ngIf="enable===false"><a [routerLink]="" (click)="redirect('/login')">Log In</a></li>
       <li class="services" *ngIf="enable===true">
         <a [routerLink]="">Options</a>
         <!-- DROPDOWN MENU -->
         <ul class="dropdown">
-          <li><a [routerLink]="" (click)="redirect('/dashboard')">Profile<i style='font-size:24px' class='fas ms-2'>&#xf2bd;</i></a></li>
-          <li><a [routerLink]="" (click)="redirect('/profile')">Settings <i style='font-size:24px' class='fas'>&#xf013;</i></a></li>
-          <li><a [routerLink]="" (click)="redirect('/orders')">Orders <i style='font-size:24px' class='fas'>&#xf02c;</i></a></li>
-          <li><a [routerLink]="" (click)="redirect('/basket')">Basket <i style='font-size:24px' class='fas'>&#xf07a;</i></a></li>
-          <hr>
-          <li><a [routerLink]="" (click)="logout()" >Logout <i style='font-size:24px' class='fas'>&#xf2f5;</i></a></li>
+          <li><a [routerLink]="" (click)="redirect('/dashboard')" class="me-2"><i style='font-size:22px' class='fas me-1'>&#xf2bd;</i> Profile</a></li>
+          <li><a [routerLink]="" (click)="redirect('/profile')" class="me-2"><i style='font-size:22px' class='fas me-1'>&#xf013;</i> Settings </a></li>
+          <li><a [routerLink]="" (click)="redirect('/orders')" class="me-2"><i style='font-size:22px' class='fas me-1'>&#xf02c;</i> Orders </a></li>
+          <li><a [routerLink]="" (click)="redirect('/basket')" class="me-2"><i style='font-size:22px' class='fas me-1'>&#xf07a;</i> Basket </a></li>
+          <!-- <hr> -->
+          <li><a [routerLink]="" (click)="logout()" class="me-2"><i style='font-size:22px' class='fas me-1'>&#xf2f5;</i> Logout </a></li>
         </ul>
       </li>
-      <li class="products">
+      <li class="products" *ngIf="enable===true">
         <a [routerLink]="['/products']">Products</a>
         <!-- DROPDOWN MENU -->
         <!-- <ul class="dropdown">

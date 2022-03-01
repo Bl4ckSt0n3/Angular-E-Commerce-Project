@@ -9,6 +9,7 @@ import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { ProductsPageComponent } from './pages/products-page/products-page.component';
 import { InfoPageComponent } from './pages/info-page/info-page.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HttpClient, HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { ProfilePageComponent } from './pages/profile-page/profile-page.component';
@@ -23,8 +24,16 @@ import { OrdersPageComponent } from './pages/orders-page/orders-page.component';
 import { DeleteAccountModalComponent } from './pages/profile-page/delete-account-modal/delete-account-modal.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ToastrModule } from 'ngx-toastr';
+import { FilterModalComponent } from './pages/products-page/filter-modal/filter-modal.component';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { NgxLoadingModule } from 'ngx-loading';
+import { JwtModule } from "@auth0/angular-jwt";
+import { AuthGuardService } from './services/auth-guard.service';
 
-
+// export function tokenGetter() {
+//   return localStorage.getItem("jwt");
+// }
 
 @NgModule({
   declarations: [
@@ -43,6 +52,7 @@ import { ToastrModule } from 'ngx-toastr';
     AdminDashboardPageComponent,
     OrdersPageComponent,
     DeleteAccountModalComponent,
+    FilterModalComponent
   ],
   imports: [
     BrowserModule,
@@ -50,6 +60,7 @@ import { ToastrModule } from 'ngx-toastr';
     ReactiveFormsModule,
     FormsModule,
     BrowserAnimationsModule,
+    HttpClientModule,
     ToastrModule.forRoot({
       enableHtml: true,
       timeOut: 10000,
@@ -57,10 +68,22 @@ import { ToastrModule } from 'ngx-toastr';
       preventDuplicates: false,
       closeButton: true
     }),
+    JwtModule.forRoot({
+      config: {
+        tokenGetter:() => {
+          return localStorage.getItem("jwt")
+        },
+        allowedDomains: ["127.0.0.1:3000"],
+        disallowedRoutes: []
+      }
+    }),
     FlexLayoutModule,
+    NgxLoadingModule.forRoot({}),
     NgbModule,
+    NgxPaginationModule,
+    Ng2SearchPipeModule,
   ],
-  providers: [],
+  providers: [AuthGuardService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

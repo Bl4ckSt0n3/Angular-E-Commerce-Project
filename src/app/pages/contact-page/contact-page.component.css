@@ -3,13 +3,16 @@
 }
 
 .container {
-    color: #b58900;
+    color: #e9af00;
 }
 
 .social-title {
-    font-size: 25px;
+    font-size: 22px;
 }
 
 .social {
-    color: #b58900;
+    color: #e9af00;
+}
+.mt-6 {
+    margin-top: 7rem;
 }

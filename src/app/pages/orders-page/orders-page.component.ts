@@ -19,7 +19,7 @@ export class OrdersPageComponent implements OnInit {
       amount: 1000,
       product: "steel for buildings",
       price: "99.90",
-      isSelected: false,
+      
       date: new Date(2021, 10, 1),
       value: "steel for buildings"
     },
@@ -28,7 +28,7 @@ export class OrdersPageComponent implements OnInit {
       amount: 1000,
       product: "steel for buildings",
       price: "109.90",
-      isSelected: true,
+      
       date: new Date(2021, 10, 2),
       value: "steel for buildings" 
     },
@@ -37,7 +37,7 @@ export class OrdersPageComponent implements OnInit {
       amount: 1000,
       product: "steel for buildings",
       price: "100",
-      isSelected: false,
+      
       date: new Date(2021, 10, 3),
       value: "steel for buildings" 
     },
@@ -46,7 +46,7 @@ export class OrdersPageComponent implements OnInit {
       amount: 1000,
       product: "steel for buildings",
       price: "85.65",
-      isSelected: false,
+      
       date: new Date(2021, 10, 4),
       value: "steel for buildings" 
     },
@@ -55,7 +55,7 @@ export class OrdersPageComponent implements OnInit {
       amount: 1000,
       product: "steel for buildings",
       price: "100",
-      isSelected: false,
+      
       date: new Date(2021, 10, 5),
       value: "steel for buildings" 
     },
@@ -64,7 +64,7 @@ export class OrdersPageComponent implements OnInit {
       amount: 1000,
       product: "steel for buildings",
       price: "100",
-      isSelected: false,
+      
       date: new Date(2021, 10, 6),
       value: "steel for buildings" 
     },
@@ -73,7 +73,7 @@ export class OrdersPageComponent implements OnInit {
       amount: 1000,
       product: "steel for buildings",
       price: "79.75",
-      isSelected: true,
+      
       date: new Date(2021, 10, 7),
       value: "steel for buildings" 
     },
@@ -82,7 +82,7 @@ export class OrdersPageComponent implements OnInit {
       amount: 1000,
       product: "steel for buildings",
       price: "100",
-      isSelected: false,
+      
       date: new Date(2021, 10, 8),
       value: "steel for buildings" 
     },
@@ -91,7 +91,7 @@ export class OrdersPageComponent implements OnInit {
       amount: 1000,
       product: "steel for buildings",
       price: "100",
-      isSelected: false,
+      
       date: new Date(2021, 10, 9),
       value: "steel for buildings" 
     },
@@ -100,7 +100,34 @@ export class OrdersPageComponent implements OnInit {
       amount: 1000,
       product: "steel for buildings",
       price: "100",
-      isSelected: false,
+      
+      date: new Date(2021, 10, 10),
+      value: "steel for buildings" 
+    },
+    {
+      id: 11,
+      amount: 1000,
+      product: "steel for buildings",
+      price: "100",
+      
+      date: new Date(2021, 10, 10),
+      value: "steel for buildings" 
+    },
+    {
+      id: 12,
+      amount: 1000,
+      product: "steel for buildings",
+      price: "100",
+      
+      date: new Date(2021, 10, 10),
+      value: "steel for buildings" 
+    },
+    {
+      id: 13,
+      amount: 1000,
+      product: "steel for buildings",
+      price: "100",
+      
       date: new Date(2021, 10, 10),
       value: "steel for buildings" 
     },
@@ -109,7 +136,6 @@ export class OrdersPageComponent implements OnInit {
   itemLength: number = this.basketItems.length; 
   defaultOption: string = "Not Selected";
 
-  tempList: any[] = this.basketItems;
   onChangeofOptions(newGov: any) {
     if(newGov == "descending") {
       // this.basketItems.reverse();
@@ -120,8 +146,15 @@ export class OrdersPageComponent implements OnInit {
       this.basketItems.sort((a, b) => {return a.date-b.date});
     }
   }
+
+  p: number = 1;
+  onPageChange(page: number) {
+    this.p = page;
+    window.scrollTo(0, 0);
+  }
   constructor(private calendar: NgbCalendar) { }
 
+  
   ngOnInit(): void {
     const dateNow = new Date();
     console.log(dateNow.toJSON());   
@@ -133,11 +166,22 @@ export class OrdersPageComponent implements OnInit {
       month: this.model_1.month,
       year: this.model_1.year
     }
-    var startTime = this.model_1.year + '-'+  this.model_1.month + '-' + this.model_1.day
+    const endDate = {
+      day: this.model_2.day,
+      month: this.model_2.month,
+      year: this.model_2.year
+    }
+    var startTime = this.model_1.year + '-' +  this.model_1.month + '-' + this.model_1.day;
     var sDate = new Date(Date.parse(startTime)).toJSON();
     
+    var endTime = this.model_2.year + '-' +  this.model_2.month + '-' + this.model_2.day
+    var eDate = new Date(Date.parse(endTime)).toJSON();
+
     console.log(startDate);
     console.log(sDate);
+
+    console.log(endDate);
+    console.log(eDate);
   }
 
 }

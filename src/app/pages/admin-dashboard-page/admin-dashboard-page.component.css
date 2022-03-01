@@ -4,7 +4,8 @@
 }
 
 .box-card {
-    background-color: rgba(238, 234, 26, 0.9);
+    /* background-color: rgba(238, 234, 26, 0.9); */
+    background-color: #e9af00;
     height: 300px;
     margin: auto;
     max-width: 25rem;
@@ -51,14 +52,75 @@
     font-weight: 600;
 }
 
-/* .info-box > div > label {
-    font-size: ;
-} */
+.order-qty {
+    font-size: 38px; 
+    font-weight: bold; 
+    color: #444;
+}
+.basket-qty {
+    font-size: 38px; 
+    font-weight: bold; 
+    color: #444;
+}
 
 .ms-6 {
     margin-left: 12rem;
 }
 
-/* .me-6 {
-    margin-right: 3rem;
-} */
+.fas-profile {
+    font-size: 45px;
+}
+.fas-order {
+    font-size: 50px;
+}
+.fas-basket {
+    font-size: 50px;
+}
+.fas-settings {
+    font-size: 45px;
+}
+
+@media only screen and (max-width: 1280px) {
+    .box-card {
+        height: 300px;
+        margin: auto;
+        min-width: 25rem;
+        box-shadow: 1px 2px 4px rgba(0,0,0,0.3), 1px 2px 4px rgba(0,0,0,0.4);
+        border-radius: 8px;
+    }
+    .box-card > section > div > label {
+        font-size: 25px;
+        color: #444;
+        font-weight: 600;
+    }
+    .user-list > li {
+        font-size: 20px;
+        color: #444;
+        font-weight: 600;
+    }
+    
+    .setting-list > li {
+        font-size: 20px;
+        color: #444;
+        font-weight: 600;
+    }
+    .order-qty {
+        font-size: 30px;
+    }
+    .basket-qty {
+        font-size: 30px; 
+    }
+
+    .fas-profile {
+        font-size: 35px;
+    }
+    .fas-order {
+        font-size: 30px;
+    }
+    .fas-basket {
+        font-size: 30px;
+    }
+    .fas-settings {
+        font-size: 30px;
+    }
+}

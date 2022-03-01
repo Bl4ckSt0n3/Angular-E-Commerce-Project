@@ -1,23 +1,31 @@
-.container {
+.container-fluid {
     font-family: 'Oswald', sans-serif;
+    background-color: #f5f6f7;
+    
+}
+.row {
+    background-color: #f5f6f7;
+    display: flex;
 }
 
 .box {
-    background-color: #eee;
+    /* background-color: #eee; */
+    background-color: #f5f6f7;
 }
 .mt-6 {
-    margin-top: 10rem;
+    margin-top: 6.30rem;
 }
 
 .products {
     background-color: #fff;
     /* border: #444 0.5px solid;
     border-radius: 0px; */
-    box-shadow: 1px 2px 4px rgba(0,0,0,0.2), 1px 2px 4px rgba(0,0,0,0.3);
+    /* box-shadow: 2px 4px 6px -2px rgb(0, 0, 0, 0.6); */
+    box-shadow: 0 0 2px rgb(0 0 0 / 20%), 0 2px 10px rgb(0 0 0 / 10%);;
 }
 
 #name {
-    font-size: 28px;
+    font-size: 22px;
     color: #444;
 }
 
@@ -28,12 +36,12 @@
 }
 
 #price {
-    font-size: 24px;
+    font-size: 20px;
     color: #444;
 }
 
 #orderDate {
-    font-size: 22px;
+    font-size: 20px;
     font-weight: 700;
     color: rgb(129, 129, 129);
 }
@@ -43,13 +51,53 @@
     color: #444;
 }
 #orderStatus {
-    font-size: 22px;
+    font-size: 18px;
     font-weight: 700;
     color: rgb(129, 129, 129);
 }
+.inner-row {
+    border-bottom: 0.5px solid rgb(177, 177, 177);
+    /* background-color: rgb(180, 180, 180); */
+    /* background-color: rgba(228, 228, 228, 0.7); */
+}
+.start-date {
+    font-size: 18px; 
+    color: rgb(95, 95, 95);
+}
+#startDateInput {
+    font-size: 18px; 
+    max-width: 140px;
+    border-radius: 5px; 
+    box-shadow: 0 1px 4px 0px rgba(0, 0, 0, 0.12); 
+}
+
+.end-date {
+    font-size: 18px; 
+    color: rgb(95, 95, 95);
+}
+#endDateInput {
+    font-size: 18px; 
+    max-width: 140px;
+    border-radius: 5px; 
+    box-shadow: 0 1px 4px 0px rgba(0, 0, 0, 0.12); 
+}
+
 .form-select {
-    font-size: 18px;
-    max-width: 190px;
+    font-size: 20px;
+    /* max-width: 180px; */
+    height: 55px;
+    border-radius: 8px; 
+    box-shadow: 0 1px 4px 0px rgba(0, 0, 0, 0.12); 
+    color: #444;
+}
+
+
+.fa {
+    font-size:18px;
+}
+.fa-search {
+    font-size:18px;
+    color: #fff;
 }
 
 img {
@@ -60,5 +108,36 @@ img {
     img {
         height: 6rem;
         width: 8rem;
+    }
+    
+}
+
+@media only screen and (max-width: 820px) {
+    .start-date {
+        font-size: 18px; 
+    }
+    #startDateInput {
+        font-size: 14px; 
+        max-width: 110px;
+    }
+    .end-date {
+        font-size: 18px;
+    }
+    #endDateInput {
+        font-size: 14px; 
+        max-width: 110px;
+    }
+    .fa {
+        font-size: 14px;
+    }
+    img {
+        height: 6rem;
+        width: 8rem;
+    }
+    .frame {
+        min-width: 100%;
+    }
+    .search-box {
+        min-width: 100%;
     }
 }

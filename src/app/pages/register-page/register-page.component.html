@@ -87,7 +87,7 @@
               </div>
               </div>
               <div class="col-md-6">
-                <label for="inputPassword4" class="form-label">Password *</label>
+                <label for="inputPassword4" class="form-label">Password * <small>(Password must contain at least 8 character)</small></label>
                 <input type="password" class="form-control" id="inputPassword4" formControlName="password" [ngClass]="{ 'is-invalid': submitted && f.password.errors }">
                 <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
                   <div *ngIf="f.password.errors.required">Password is required</div>
@@ -96,9 +96,9 @@
               </div>
               <div class="col-md-6">
                   <label for="name" class="form-label">Name *</label>
-                  <input type="text" class="form-control" id="name" formControlName="name" [ngClass]="{ 'is-invalid': submitted && f.name.errors }">
-                  <div *ngIf="submitted && f.name.errors" class="invalid-feedback">
-                    <div *ngIf="f.name.errors.required">Name is required</div>
+                  <input type="text" class="form-control" id="name" formControlName="firstName" [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }">
+                  <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
+                    <div *ngIf="f.firstName.errors.required">Name is required</div>
                   </div>
                 </div>
               <div class="col-md-6">
@@ -150,6 +150,7 @@
               <div class="col-md-6">
                 <button type="submit" class="btn btn-danger float-end" id="btn-danger" style="font-size: 20px;" (click)="cancel()">Cancel <i style='font-size:24px' class='fas'>&#xf00d;</i></button>
               </div>
+              <!-- <button class="btn btn-primary" type="reset">Reset</button>  -->
             </form>
           </div>
         </div>

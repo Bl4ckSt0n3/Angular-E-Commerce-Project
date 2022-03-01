@@ -1,4 +1,10 @@
-.container {
+
+
+
+
+
+
+/* .container {
     margin-top: 15rem;
 }
 .accordion-button {
@@ -30,11 +36,6 @@
 .input input {
     text-indent: 40px;
     font-size: 28px;
-    /* border: #444 3px solid;
-    border-radius: 5px; */
-    /* box-shadow: none !important;
-    -webkit-box-shadow: none !important;
-    -moz-box-shadow: none !important; */
 }
 
 .form-control {
@@ -63,12 +64,11 @@
 
 #paypalInput {
     font-size: 28px;
-    /* border: #444 3px solid;
-    border-radius: 5px;
-    box-shadow: none !important;
-    -webkit-box-shadow: none !important;
-    -moz-box-shadow: none !important; */
-}
+    
+} */
+
+
+
 
 /* @import url('https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap');
 

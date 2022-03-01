@@ -1,6 +1,6 @@
 <div class="container-fluid mt-6">  
-    <div class="row rounded justify-content-center">
-        <div class="col-md-6 align-self-center">
+    <div class="row justify-content-center">
+        <div class="col-md-5 align-self-center">
             <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
                 <div class="carousel-indicators">
                   <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -28,21 +28,20 @@
                 </button>
               </div>
         </div>
-        <div class="col-md-6 mt-5">
-          <section class="box-small">
-            <h3 class="mt-3" style="font-weight: bold;">
-                {{cardTitle}}
-            </h3>
+        <div class="col-md-5 mt-5">
+          <section class="box-small mt-6">
+            <h2 class="mt-3" style="font-weight: 600; color: #002b36;">
+                {{ cardTitle }}
+            </h2>
             <div class="product-meta">
-                <span><strong>Category: </strong>{{category}}</span>
+                <span><strong>Category: </strong>{{ category }}</span>
                 <br>
-                <span><strong>Price: </strong></span>
-                <span><label class="mt-3" style="font-size: 30px;"><b>{{price}}</b></label></span>
+                <span><label class="mt-3" style="font-size: 32px; color: #002b36;"><b>$ {{price}}</b></label></span>
                 
             </div>
             <p class="card-text">
               {{cardText}}
-          </p>
+            </p>
             <div class="form-group">
                 <form>
                     <label><strong>Quantity: </strong></label>
@@ -51,7 +50,7 @@
                 
             </div>
             <div class="mt-3">
-                <button class="btn btn-round btn-danger p-2" type="button"><i class="fa fa-shopping-cart ms-1 me-2" style="font-size: 22px;"></i>Add to Cart</button>
+                <button class="btn btn-round btn-danger p-2" type="button">Add to Cart</button>
             </div>
           </section>
             

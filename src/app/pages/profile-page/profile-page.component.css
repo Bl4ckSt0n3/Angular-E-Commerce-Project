@@ -73,8 +73,12 @@ label {
     font-family: 'Oswald', sans-serif;
     font-size: 20px;
 
-    background-color: #002b36;
+    background-color: rgba(91, 112, 126, 0.5) ;
     color: #fff;
+}
+
+input:read-only{
+    background-color: #002b36;
 }
 
 .mt-6 {
@@ -91,7 +95,7 @@ label {
     top: 5%;
 
 } */
-.btn {
+/* .btn {
     background-color: #444;
     color: #ccc;
     border: none;
@@ -100,7 +104,7 @@ label {
     height: 50px;
     max-height: 50px;
     margin-top: 15px;
-}
-.btn:hover {
+} */
+/* .btn:hover {
     background-color: rgb(168, 167, 167);
-}
+} */

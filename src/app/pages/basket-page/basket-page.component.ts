@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { findIndex } from 'rxjs/operators';
 import { FormBuilder, FormGroup, FormArray, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-basket-page',
@@ -13,14 +14,14 @@ export class BasketPageComponent implements OnInit {
   // https://stackblitz.com/edit/angular-dynamic-checkbox-set
 
   itemForm!: FormGroup;
-
+  isNull: boolean = false;
+ 
   basketItems: any[] = [
     {
       id: 1,
       amount: 1000,
       product: "steel for buildings",
       price: "99.90",
-      isSelected: false,
       value: "steel for buildings" 
     },
     {
@@ -28,7 +29,6 @@ export class BasketPageComponent implements OnInit {
       amount: 1000,
       product: "steel for buildings",
       price: "109.90",
-      isSelected: true,
       value: "steel for buildings" 
     },
     {
@@ -36,7 +36,6 @@ export class BasketPageComponent implements OnInit {
       amount: 1000,
       product: "steel for buildings",
       price: "100",
-      isSelected: false,
       value: "steel for buildings" 
     },
     {
@@ -44,7 +43,6 @@ export class BasketPageComponent implements OnInit {
       amount: 1000,
       product: "steel for buildings",
       price: "85.65",
-      isSelected: false,
       value: "steel for buildings" 
     },
     {
@@ -52,7 +50,6 @@ export class BasketPageComponent implements OnInit {
       amount: 1000,
       product: "steel for buildings",
       price: "100",
-      isSelected: false,
       value: "steel for buildings" 
     },
     {
@@ -60,7 +57,6 @@ export class BasketPageComponent implements OnInit {
       amount: 1000,
       product: "steel for buildings",
       price: "100",
-      isSelected: false,
       value: "steel for buildings" 
     },
     {
@@ -68,7 +64,6 @@ export class BasketPageComponent implements OnInit {
       amount: 1000,
       product: "steel for buildings",
       price: "79.75",
-      isSelected: true,
       value: "steel for buildings" 
     },
     {
@@ -76,7 +71,6 @@ export class BasketPageComponent implements OnInit {
       amount: 1000,
       product: "steel for buildings",
       price: "100",
-      isSelected: false,
       value: "steel for buildings" 
     },
     {
@@ -84,7 +78,6 @@ export class BasketPageComponent implements OnInit {
       amount: 1000,
       product: "steel for buildings",
       price: "100",
-      isSelected: false,
       value: "steel for buildings" 
     },
     {
@@ -92,58 +85,46 @@ export class BasketPageComponent implements OnInit {
       amount: 1000,
       product: "steel for buildings",
       price: "100",
-      isSelected: false,
       value: "steel for buildings" 
     },
   ];
 
+  basketItemsLength = this.basketItems.length;
+  prev_total: any = 0;
+  get_prev_total() {
+    this.basketItems.forEach(e => {
+      this.prev_total += parseFloat(e.price);
+    })
+    return this.prev_total.toFixed(2);
+  }
   
   get ordersFormArray() {
     return this.itemForm.controls.orders as FormArray;
   }
 
   // sumOfPrices: any[] = [];
-
-  checkAllOptions() {
-    // if (this.basketItems.every(val => val.isSelected === true)) {
-    //   this.basketItems.forEach(
-    //     val => { 
-    //       val.isSelected = false 
-    //     });
-    // }
-    // else {
-    //   this.basketItems.forEach(
-    //     val => {
-    //       val.isSelected = true 
-    //     });
-    //   }
-
-    if(this.itemForm.value.orders.every((val: boolean) => val === true)) {
-      this.itemForm.value.orders.forEach(
-        (val: boolean) =>  {
-          val = false;
-        }
-      );
-    }
-    else {
-      this.itemForm.value.orders.forEach(
-        (val: boolean) =>  {
-          val = true;
-        }
-      );
-    }
-    
-  }
-
-  removeItem(id: any) {
-    this.basketItems.forEach(element => { // db remove operation will be written instead of that all
-      if(element.id === id) {
-        this.basketItems.splice(this.basketItems.indexOf(element), 1);
-      }
+  check: boolean = true;
+  checkAllOptions(e: any) {
+    this.basketItems.forEach(val => {
+      val.isSelected = e;
     });
   }
 
-  total: any = 0;
+  removeItem(id: any) { // db remove operation will be written instead of that all
+    this.basketItems.forEach(element => { 
+      if(element.id === id) {
+        this.basketItems.splice(this.basketItems.indexOf(element), 1);
+        this.ordersFormArray.removeAt(this.ordersFormArray.value.findIndex((val: any) => val.id === element.id));
+        
+      }
+    });
+    
+    this.basketItemsLength = this.basketItems.length;
+    // this.confirm();
+    this.re_calc();
+  }
+
+  total: any = 0.00;
   // sum: string = '';
   // totalPriceOfItems() {
   //   this.basketItems.forEach(element => {
@@ -159,26 +140,44 @@ export class BasketPageComponent implements OnInit {
   // }
 
 
+  private addCheckboxesToForm() {
+    this.basketItems.forEach(() => this.ordersFormArray.push(new FormControl(true)));
+  }
+  
 
   constructor(
     private formBuilder: FormBuilder,
-    private router: Router
+    private router: Router,
+    private toastr: ToastrService,
     ) { 
     this.itemForm = this.formBuilder.group({
       orders: new FormArray([])
     });
      this.addCheckboxesToForm();
     //this.sum = this.totalPriceOfItems().toString();
-    
-
+    this.basketItems.forEach((val: any) => val.isSelected = true);
+    // this.basketItems.forEach((val: any) => {
+    //   this.total += parseFloat(val.price);
+    // });
    }
 
-  private addCheckboxesToForm() {
-    this.basketItems.forEach(() => this.ordersFormArray.push(new FormControl(true)));
-  }
+   re_calc() {
+    this.prev_total = 0.00;
+
+    const selectedOrderPrices = this.itemForm.value.orders.map(
+      (checked:any, i:any) => checked ? this.basketItems[i].price : null).filter(
+        (v:any) => v !== null);
+    
+    selectedOrderPrices.forEach((element: any) => {
+      this.prev_total += parseFloat(element);
+    });
+    this.prev_total = this.prev_total.toFixed(2);
+   }
+  
 
   confirm() {
-    this.total = 0;
+    this.total = 0.00;
+
     const selectedOrderPrices = this.itemForm.value.orders.map(
       (checked:any, i:any) => checked ? this.basketItems[i].price : null).filter(
         (v:any) => v !== null);
@@ -188,22 +187,29 @@ export class BasketPageComponent implements OnInit {
     });
     // this.sum = this.total
     this.total = this.total.toFixed(2);
-    console.log(this.itemForm.value.orders);
+
+    if(this.total <= 0) {
+      this.isNull = false;
+    }else{
+      this.isNull = true;
+    }
+    this.re_calc();
+    // console.log(this.itemForm.value.orders);
+    
   }
 
   next() {
-    this.router.navigate(['/payment'])
+    if(this.total <= 0) {
+      this.toastr.error("You can not continue by 0.", "Error!");
+      return
+    }
+    else {
+      this.router.navigate(['/payment']);
+    }
   }
 
   ngOnInit(): void {
-    // const selectedOrderPrices = this.itemForm.value.orders.map(
-    //   (checked:any, i:any) => checked ? this.basketItems[i].price : null).filter(
-    //     (v:any) => v !== null);
-    
-    // selectedOrderPrices.forEach((element: any) => {
-    //   this.total += parseFloat(element);
-    // });
-    // this.total = this.total.toFixed(2);
+    this.get_prev_total();
   }
 
 }

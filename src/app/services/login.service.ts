@@ -1,12 +1,11 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { map } from 'rxjs/operators';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { ApplicationConfig } from 'src/assets/app-config';
-
+import { map } from 'rxjs/operators';
 @Injectable({
   providedIn: 'root'
 })
-export class UserService {
+export class LoginService {
 
   private config: ApplicationConfig = new ApplicationConfig();
 
@@ -16,7 +15,7 @@ export class UserService {
     return token;
   }
 
-  createUser(userData: object) {
+  getSomeone() {
     let headers = new HttpHeaders();
     const options = {
       headers: new HttpHeaders({
@@ -27,13 +26,13 @@ export class UserService {
     this.authToken = this.tokenGetter()?.toString();
     headers.append('Authorization', "Bearer "+this.authToken);
     headers.append('Content-Type', 'application/json');
-    console.log(userData);
-    return this.httpClient.post(`${this.config.loginUrl}/user/create_user`, userData, {headers: options.headers})
-    .pipe(
-      map(res => res)
-    );
+    // console.log(this.authToken);
+    // console.log(options.headers);
+    return this.httpClient.get(`${this.config.loginUrl}/user/get_user`, {headers: options.headers}).pipe(map(res => res));
   }
-  
+  login(email: string, password: string) {
+    return this.httpClient.post(`${this.config.loginUrl}/auth/login`, {email, password}).pipe();
+  }
   constructor(
     private httpClient: HttpClient
   ) { }

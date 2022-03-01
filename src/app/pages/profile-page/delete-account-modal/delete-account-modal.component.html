@@ -1,5 +1,5 @@
 <div class="modal-header">
-    <h3 class="modal-title">My Modal</h3>
+    <h3 class="modal-title">Delete Account</h3>
         <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
             <span aria-hidden="true">&times;</span>
         </button>
@@ -7,7 +7,7 @@
 <div class="modal-body">
     <div class="form">
         <form [formGroup]="deleteAccountForm">
-            <div class="col-md-auto">
+            <div class="col-md-auto mt-2">
                 <label for="inputEmail4" class="form-label">Email</label>
                 <input type="email" class="form-control" id="inputEmail4" formControlName="email" [ngClass]="{ 'is-invalid': submitted && f.email.errors }">
                 <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
@@ -15,14 +15,14 @@
                     <div *ngIf="f.email.errors.email">Email must be a valid email address</div>
                 </div>
             </div>
-            <div class="col-md-auto">
+            <div class="col-md-auto mt-2">
                 <label for="inputPassword4" class="form-label">Password</label>
                 <input type="password" class="form-control" id="inputPassword4" formControlName="password" [ngClass]="{ 'is-invalid': submitted && f.password.errors }">
                 <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
                     <div *ngIf="f.password.errors.required">Password is required</div>
                 </div>
             </div>
-            <div class="col-md-auto">
+            <div class="col-md-auto mt-2">
                 <label for="name" class="form-label">Name</label>
                 <input type="text" class="form-control" id="name" formControlName="name" [ngClass]="{ 'is-invalid': submitted && f.password.errors }">
                 <div *ngIf="submitted && f.name.errors" class="invalid-feedback">
@@ -34,7 +34,7 @@
     </div>   
 </div>
 <div class="modal-footer">
-    <button type="button" id="blue-button" class="btn btn-outline-dark confirm-buton" (click)="confirm()">confirm</button> 
-    <button type="button" id="red-button" class="btn btn-outline-dark confirm-buton" (click)="activeModal.close('Close click')">close</button>
+    <button type="button" id="delete" class="btn btn-danger confirm-buton" (click)="confirm()">Delete</button> 
+    <button type="button" id="cancel" class="btn btn-secondary confirm-buton" (click)="activeModal.close('Close click')">Cancel</button>
 </div>
 

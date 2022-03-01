@@ -16,13 +16,14 @@
                     <section>
                         <div class="mt-5 ms-4">
                             <label >My Profile</label>
-                            <label class="float-end me-5"><i style='font-size:45px' class='fas'>&#xf2bd;</i></label>
+                            <label class="float-end me-5"><i class='fas fas-profile'>&#xf2bd;</i></label>
                         </div>
-                        <div class="mt-4 ms-4">
+                        <div class="mt-3 ms-4">
                             <ul class="user-list" style="list-style-type: none;">
                                 <li>Name: User</li>
-                                <li>Username: Username</li>
+                                <li>Lastname: UserLastname</li>
                                 <li>Created at 1.1.2022</li>
+                                <li>Email: test@test.com</li>
                             </ul>
                         </div>
                     </section>
@@ -34,8 +35,8 @@
                             
                         </div>
                         <div class="ms-4 mt-5">
-                            <label><i style='font-size:50px' class='fas'>&#xf07a;</i></label>
-                            <span class="float-end me-3"><label style="font-size: 38px; font-weight: bold; color: #444;">Items: {{quentity}}</label></span>
+                            <label><i class='fas fas-basket'>&#xf07a;</i></label>
+                            <span class="float-end me-3"><label class="basket-qty">Items: {{quentity}}</label></span>
                         </div>
                     </section>
                 </div>
@@ -45,16 +46,16 @@
                             <label>Orders</label>
                         </div>
                         <div class="ms-4 mt-5">
-                            <label><i style='font-size:50px' class='fas'>&#xf02c;</i></label>
-                            <span class="float-end me-3"><label style="font-size: 38px; font-weight: bold; color: #444;">134</label></span>
+                            <label><i class='fas fas-order'>&#xf02c;</i></label>
+                            <span class="float-end me-3"><label class="order-qty">134</label></span>
                         </div>
                     </section>
                 </div>
-                <div class="col-md-3 box-card mt-2">
+                <div class="col-md-3 box-card mt-2" (click)="redirectUrl('/profile')">
                     <section>
                         <div class="mt-5 ms-4">
                             <label>Settings</label>
-                            <label class="float-end me-5"><i style='font-size:45px' class='fas'>&#xf085;</i></label>
+                            <label class="float-end me-5"><i class='fas fas-settings'>&#xf085;</i></label>
                         </div>
                         <div class="ms-4 mt-4">
                             <ul class="setting-list" style="list-style-type: none;">

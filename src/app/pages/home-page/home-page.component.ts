@@ -10,12 +10,14 @@ import { Router } from '@angular/router';
 export class HomePageComponent implements OnInit {
 
 
+  token: any;
   redirect() {
-    this.router.navigate(["/register"]);
+    this.router.navigate(["user/register"]);
   }
   constructor(private router: Router) { }
 
   ngOnInit(): void {
+    this.token = localStorage.getItem("jwt");
   }
 
 }
