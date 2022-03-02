@@ -87,16 +87,17 @@ export class AppComponent {
             this.enable = true;
           }
         }
-        // else if(e instanceof RoutesRecognized) {
-        //   if(e.state.root.firstChild?.params.param) {
-        //     if(jwtHelper.isTokenExpired(token) || localStorage.getItem("jwt") == null) {
-        //       this.enable = false;
-        //     }
-        //     else {
-        //       this.enable = true;
-        //     }
-        //   }
-        // }
+        else if(e instanceof RoutesRecognized) {
+          if(e.state.root.firstChild?.params.param && localStorage.getItem("jwt") === null) {
+            console.log(e.state.root.firstChild?.params.param);
+            
+              this.enable = true;
+            
+            
+          }
+              this.enable = false;
+            
+        }
       });
   }
 }

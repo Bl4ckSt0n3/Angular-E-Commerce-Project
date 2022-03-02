@@ -30,6 +30,7 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { NgxLoadingModule } from 'ngx-loading';
 import { JwtModule } from "@auth0/angular-jwt";
 import { AuthGuardService } from './services/auth-guard.service';
+import { UserDashboardPageComponent } from './pages/user-dashboard-page/user-dashboard-page.component';
 
 // export function tokenGetter() {
 //   return localStorage.getItem("jwt");
@@ -52,7 +53,8 @@ import { AuthGuardService } from './services/auth-guard.service';
     AdminDashboardPageComponent,
     OrdersPageComponent,
     DeleteAccountModalComponent,
-    FilterModalComponent
+    FilterModalComponent,
+    UserDashboardPageComponent
   ],
   imports: [
     BrowserModule,

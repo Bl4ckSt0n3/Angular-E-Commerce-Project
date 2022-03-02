@@ -43,21 +43,21 @@ export class LoginPageComponent implements OnInit {
     this.loading = true;
     setTimeout(() => {
       this.loading = false;
-        this.loginService.login(this.loginForm.get("email")?.value, this.loginForm.get("password")?.value).pipe(first()).subscribe(
-          (loginData: any) => {
-            console.log(loginData.data);
-            if(loginData.statusCode === 200) {
-              
-              const token = loginData.data.token;
-              localStorage.setItem("jwt", token);
-              console.log(token);
-              this.router.navigate(['/products']);
-            }
-            else if(loginData.statusCode === 400) {
-              this.toastr.error("Please check your login informations", "Error");
-            }
+      this.loginService.login(this.loginForm.get("email")?.value, this.loginForm.get("password")?.value).pipe(first()).subscribe(
+        (success: any) => {
+          console.log(success);
+          if(success.statusCode === 200) {
+            const token = success.data.token;
+            localStorage.setItem("jwt", token);
+            console.log(token);
+            this.router.navigate(['/products']);
           }
-        )
+        },
+        (error: any) => {
+          // console.log(error);
+          this.toastr.error("Invalid email or password !", "Error");
+        }
+      );
     }, 1500);
     if (this.loginForm.invalid) {
       return;

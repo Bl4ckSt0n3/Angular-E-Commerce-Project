@@ -31,7 +31,7 @@ export class LoginService {
     return this.httpClient.get(`${this.config.loginUrl}/user/get_user`, {headers: options.headers}).pipe(map(res => res));
   }
   login(email: string, password: string) {
-    return this.httpClient.post(`${this.config.loginUrl}/auth/login`, {email, password}).pipe();
+    return this.httpClient.post(`${this.config.loginUrl}/auth/login`, {email, password}).pipe(map(res => res));
   }
   constructor(
     private httpClient: HttpClient
