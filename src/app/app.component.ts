@@ -87,15 +87,14 @@ export class AppComponent {
             this.enable = true;
           }
         }
-        else if(e instanceof RoutesRecognized) {
+        if(e instanceof RoutesRecognized) {
           if(e.state.root.firstChild?.params.param && localStorage.getItem("jwt") === null) {
             console.log(e.state.root.firstChild?.params.param);
             
-              this.enable = true;
+              this.enable = false;
             
             
           }
-              this.enable = false;
             
         }
       });
